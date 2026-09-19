@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HSE.KPO.DependencyInjector\HSE.KPO.DependencyInjector.csproj" />
+      <ProjectReference Include="..\HSE.KPO.Domain\HSE.KPO.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

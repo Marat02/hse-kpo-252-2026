@@ -1,4 +1,4 @@
-namespace HSE.KPO.Console;
+namespace HSE.KPO.Domain.Models;
 
 public class Car : IProduct, IDriverCar
 {
