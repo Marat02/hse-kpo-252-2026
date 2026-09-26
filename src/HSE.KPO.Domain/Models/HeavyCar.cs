@@ -4,19 +4,20 @@ public class HeavyCar : Car
 {
     public int Weight { get; private set; }
 
-    public HeavyCar(int id) : base(id)
+    public HeavyCar(int id, int weight) : base(id)
     {
-        Weight = 0;
+        Weight = weight;
     }
 
     public override void Move()
     {
         base.Move();
-        System.Console.WriteLine("Carrying a load");
+        Console.WriteLine("Carrying a load");
     }
 
-    public void Carry()
+    public int Carry()
     {
-        System.Console.WriteLine("Carrying");
+        Console.WriteLine("Carrying");
+        return Weight;
     }
 }

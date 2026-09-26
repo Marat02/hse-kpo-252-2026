@@ -9,7 +9,7 @@ public class AssemblyLine
 
     public HeavyCar CreateHeavyCar()
     {
-        return new HeavyCar(2);
+        return new HeavyCar(2, 1000);
     }
     
     public Bike CreateBike()

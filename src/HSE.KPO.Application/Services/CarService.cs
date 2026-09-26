@@ -17,6 +17,8 @@ public sealed class CarService : ICarService
         var car = new Car(1);
         
         Console.WriteLine($"Car created with id: {car.Id}");
+        var result = _carRepository.SaveCar(car);
+
         return car;
     }
 }
