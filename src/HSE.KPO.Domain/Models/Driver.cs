@@ -2,7 +2,7 @@ namespace HSE.KPO.Domain.Models;
 
 public class Driver
 {
-    public void SetCar(IDriverCar driverCar)
+    public void SetCar(ICar driverCar)
     {
         driverCar.Move();
     }

@@ -1,6 +1,6 @@
 namespace HSE.KPO.Domain.Models;
 
-public interface IDriverCar
+public interface ICar
 {
     void Move();
 }

@@ -17,7 +17,7 @@ public class DriverTests : IClassFixture<DriverFixture>
     public void DriverExisted_SetCar_CarMoved()
     {
         // Arrange
-        var driverCarMock = new Mock<IDriverCar>();
+        var driverCarMock = new Mock<ICar>();
         var driver = new Driver();
 
         // Act

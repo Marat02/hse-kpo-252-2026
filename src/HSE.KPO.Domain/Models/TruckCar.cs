@@ -1,12 +1,17 @@
 namespace HSE.KPO.Domain.Models;
 
-public class HeavyCar : Car
+public class TruckCar : Car
 {
+    private readonly IEngine _engine;
+    private readonly IWheel[] _wheels;
+    
     public int Weight { get; private set; }
 
-    public HeavyCar(int id, int weight) : base(id)
+    public TruckCar(int id, int weight, IEngine engine, IWheel[] wheels) : base(id)
     {
         Weight = weight;
+        _engine = engine;
+        _wheels = wheels;
     }
 
     public override void Move()
