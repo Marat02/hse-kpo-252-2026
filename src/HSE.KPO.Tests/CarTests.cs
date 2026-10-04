@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using HSE.KPO.Domain.Models;
 using HSE.KPO.Domain.Patterns;
+using HSE.KPO.Domain.Patterns.Creative;
 
 namespace HSE.KPO.Tests;
 

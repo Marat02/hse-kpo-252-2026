@@ -1,6 +1,6 @@
 using HSE.KPO.Domain.Models;
 
-namespace HSE.KPO.Domain.Patterns;
+namespace HSE.KPO.Domain.Patterns.Creative;
 
 public class CarFactory : ICarFactory
 {

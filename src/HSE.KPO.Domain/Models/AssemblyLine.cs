@@ -1,25 +1,56 @@
-using HSE.KPO.Domain.Patterns;
+using HSE.KPO.Domain.Patterns.Behavior;
+using HSE.KPO.Domain.Patterns.Behavior.State;
+using HSE.KPO.Domain.Patterns.Creative;
 
 namespace HSE.KPO.Domain.Models;
 
 public class AssemblyLine
 {
-    private readonly ICarBuilder _carBuilder;
     private readonly TruckBuilder _truckBuilder;
+    private readonly IStrategy _strategy; 
+    
+    public AssemblyLineStatus Status { get; private set; }
+    
+    private IState _state;
 
-    public AssemblyLine(ICarBuilder carBuilder, TruckBuilder truckBuilder)
+    public AssemblyLine(TruckBuilder truckBuilder, IStrategy strategy)
     {
-        _carBuilder = carBuilder;
+        Status = AssemblyLineStatus.Idle;
         _truckBuilder = truckBuilder;
+        _strategy = strategy;
+        _state = new ReadyState();
     }
 
     public Car CreateCar()
     {
+        _state = _state.StartWorking();
+
+        var car = new Car(1);
+        _strategy.Execute();
+        
+        var templateMethod = new CarTemplateMethod(car);
+        Assemble(templateMethod);
+        
+        var command = new CreateCarCommand();
+        command.Execute();
+        var testCar = command.Car;
+        
+        if (testCar.Id < 0)
+            command.Undo();
+        
+        _state.StopWorking();
         return new Car(1);
     }
 
     public TruckCar CreateHeavyCar()
     {
+        _state = _state.StartWorking();
+        var car = _truckBuilder.SetId(1).SetWheels(new IWheel[4]).SetEngine(new Engine(1)).Build();
+        var templateMethod = new HeavyCarTemplateMethod(car);
+        
+        Assemble(templateMethod);
+
+        _state = _state.StopWorking();
         return (TruckCar)_truckBuilder.Build();
     }
     
@@ -28,21 +59,20 @@ public class AssemblyLine
         return new Bike();
     }
 
-    public ICar[] BuildCars()
+    public void Stop()
     {
-        _carBuilder.SetId(1);
-        _carBuilder.SetWheels(new IWheel[4]);
-        _carBuilder.SetEngine(new Engine(1));
-        var car = _carBuilder.Build();
-        
-        _carBuilder
-            .SetId(2)
-            .SetWheels(new IWheel[4])
-            .SetEngine(new Engine(1));
+        _state = _state.StopWorking();
+    }
 
-        var car2 = _carBuilder.Build();
+    public void Prepare()
+    {
+        _state = _state.Prepare();
+    }
 
-        var car3 = new CarDirector(_carBuilder).BuildCar();
-        return [car, car2, car3];
+    private void Assemble(ITemplateMethod templateMethod)
+    {
+        templateMethod.AddBody();
+        templateMethod.AddWheels();
+        templateMethod.AddDoors();
     }
 }
