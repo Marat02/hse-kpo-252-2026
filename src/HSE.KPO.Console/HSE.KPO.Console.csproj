@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\HSE.KPO.Application\HSE.KPO.Application.csproj" />
     <ProjectReference Include="..\HSE.KPO.DependencyInjector\HSE.KPO.DependencyInjector.csproj" />
+    <ProjectReference Include="..\HSE.KPO.Infrastructure\HSE.KPO.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

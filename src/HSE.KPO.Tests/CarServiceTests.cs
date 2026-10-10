@@ -1,4 +1,5 @@
 using HSE.KPO.Application.Interfaces;
+using HSE.KPO.Application.Repositories;
 using HSE.KPO.Application.Services;
 using HSE.KPO.Domain.Models;
 using Moq;
@@ -14,7 +15,7 @@ public class CarServiceTests
     {
         // Arrange
         var carRepositoryMock = new Mock<ICarRepository>();
-        carRepositoryMock.Setup(x => x.SaveCar(It.IsAny<Car>())).Returns(20);
+        carRepositoryMock.Setup(x => x.SaveCar(It.IsAny<Car>())).Returns(new Car(1));
 
         var carService = new CarService(carRepositoryMock.Object);
         

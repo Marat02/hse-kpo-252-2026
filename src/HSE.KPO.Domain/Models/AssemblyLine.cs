@@ -13,6 +13,10 @@ public class AssemblyLine
     
     private IState _state;
 
+    public AssemblyLine()
+    {
+    }
+
     public AssemblyLine(TruckBuilder truckBuilder, IStrategy strategy)
     {
         Status = AssemblyLineStatus.Idle;

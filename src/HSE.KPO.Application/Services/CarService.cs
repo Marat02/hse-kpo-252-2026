@@ -1,4 +1,5 @@
 using HSE.KPO.Application.Interfaces;
+using HSE.KPO.Application.Repositories;
 using HSE.KPO.Domain.Models;
 
 namespace HSE.KPO.Application.Services;

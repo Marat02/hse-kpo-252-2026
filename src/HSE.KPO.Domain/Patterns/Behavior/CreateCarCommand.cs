@@ -2,7 +2,7 @@ using HSE.KPO.Domain.Models;
 
 namespace HSE.KPO.Domain.Patterns.Behavior;
 
-public class CreateCarCommand : HSE.KPO.Domain.Patterns.Behavior.ICommand
+public class CreateCarCommand : ICommand
 {
     public Car Car { get; private set; }
     

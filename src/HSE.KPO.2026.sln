@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSE.KPO.DependencyInjector"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSE.KPO.Tests", "HSE.KPO.Tests\HSE.KPO.Tests.csproj", "{8106A1D4-733E-45BC-A437-06AE56BF3824}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSE.KPO.Infrastructure", "HSE.KPO.Infrastructure\HSE.KPO.Infrastructure.csproj", "{8A3B8FE2-391F-4440-ACFB-2F4DD11D0764}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{8106A1D4-733E-45BC-A437-06AE56BF3824}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8106A1D4-733E-45BC-A437-06AE56BF3824}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8106A1D4-733E-45BC-A437-06AE56BF3824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A3B8FE2-391F-4440-ACFB-2F4DD11D0764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A3B8FE2-391F-4440-ACFB-2F4DD11D0764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A3B8FE2-391F-4440-ACFB-2F4DD11D0764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A3B8FE2-391F-4440-ACFB-2F4DD11D0764}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{982A3D87-6CA2-40C4-9BBD-21681A8E724B} = {7AB6AC44-BAB2-4F1E-A316-689F55345AD7}
