@@ -6,4 +6,12 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MassTransit.Abstractions" Version="8.5.11" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HSE.KPO.CarAssembly.Public\HSE.KPO.CarAssembly.Public.csproj" />
+    </ItemGroup>
+
 </Project>

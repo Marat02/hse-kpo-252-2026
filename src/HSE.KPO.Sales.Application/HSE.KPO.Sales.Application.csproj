@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HSE.KPO.CarAssembly.Public\HSE.KPO.CarAssembly.Public.csproj" />
+      <ProjectReference Include="..\HSE.KPO.Sales.Domain\HSE.KPO.Sales.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MassTransit.Abstractions" Version="8.5.11" />
+    </ItemGroup>
+
+</Project>
