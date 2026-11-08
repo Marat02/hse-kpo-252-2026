@@ -26,6 +26,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSE.KPO.Sales.Infrastructur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSE.KPO.CarAssembly.Public", "HSE.KPO.CarAssembly.Public\HSE.KPO.CarAssembly.Public.csproj", "{AC6739CD-896A-412C-AB12-D76A8B26CBD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSE.KPO.API", "HSE.KPO.API\HSE.KPO.API.csproj", "{99F17841-9770-4FEF-AC4F-5353185AE19E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9ED4F6A1-035C-4734-9AD9-048D86D98009}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSE.KPO.MVC", "HSE.KPO.MVC\HSE.KPO.MVC.csproj", "{A179D1C4-9CD8-4814-A790-F981E51B0C3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +81,14 @@ Global
 		{AC6739CD-896A-412C-AB12-D76A8B26CBD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC6739CD-896A-412C-AB12-D76A8B26CBD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC6739CD-896A-412C-AB12-D76A8B26CBD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99F17841-9770-4FEF-AC4F-5353185AE19E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99F17841-9770-4FEF-AC4F-5353185AE19E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99F17841-9770-4FEF-AC4F-5353185AE19E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99F17841-9770-4FEF-AC4F-5353185AE19E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A179D1C4-9CD8-4814-A790-F981E51B0C3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A179D1C4-9CD8-4814-A790-F981E51B0C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A179D1C4-9CD8-4814-A790-F981E51B0C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A179D1C4-9CD8-4814-A790-F981E51B0C3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{982A3D87-6CA2-40C4-9BBD-21681A8E724B} = {7AB6AC44-BAB2-4F1E-A316-689F55345AD7}

@@ -35,4 +35,21 @@ public class CarTests
         // Act
         car.Move();
     }
+
+    [Fact]
+    public void CarExist_ButtonPushed_CounterIncreased()
+    {
+        // Arrange
+        var car = new Car(1);
+        var view = new CarView();
+        var viewModel = new CarViewModel(car);
+        view.AddSub(viewModel);
+        viewModel.AddView(view);
+        
+        // Act
+        view.Push();
+        
+        // Assert
+        view.Counter.Should().Be(1);
+    }
 }

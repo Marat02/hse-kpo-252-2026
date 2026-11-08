@@ -25,9 +25,12 @@ public class Car : IProduct, ICar
 
     public int Color { get; private set; }
 
+    public int MoveCount { get; private set; } = 0;
+
     public virtual void Move()
     {
         Console.WriteLine("Moving");
+        MoveCount++;
     }
 
     public int SerialNumber { get; }

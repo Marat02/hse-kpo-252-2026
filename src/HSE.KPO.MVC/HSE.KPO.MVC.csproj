@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HSE.KPO.Infrastructure\HSE.KPO.Infrastructure.csproj" />
+      <ProjectReference Include="..\HSE.KPO.Sales.Infrastructure\HSE.KPO.Sales.Infrastructure.csproj" />
+      <ProjectReference Include="..\HSE.KPO.Domain\HSE.KPO.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

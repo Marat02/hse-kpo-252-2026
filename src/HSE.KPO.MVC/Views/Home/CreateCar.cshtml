@@ -1,0 +1,21 @@
+@model HSE.KPO.MVC.Models.CarViewModel
+@{
+    ViewData["Title"] = "Created Car";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Созданная машина</h1>
+
+    <dl class="row justify-content-center">
+        <dt class="col-sm-3">Id</dt>
+        <dd class="col-sm-9 text-start">@Model.Id</dd>
+
+        <dt class="col-sm-3">Серийный номер</dt>
+        <dd class="col-sm-9 text-start">@Model.SerialNumber</dd>
+
+        <dt class="col-sm-3">Перемещений</dt>
+        <dd class="col-sm-9 text-start">@Model.MoveCount</dd>
+    </dl>
+
+    <a asp-action="Index" class="btn btn-secondary">Назад</a>
+</div>

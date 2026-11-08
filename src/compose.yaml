@@ -1,0 +1,13 @@
+﻿services:
+  hse.kpo.api:
+    image: hse.kpo.api
+    build:
+      context: .
+      dockerfile: HSE.KPO.API/Dockerfile
+
+  hse.kpo.mvc:
+    image: hse.kpo.mvc
+    build:
+      context: .
+      dockerfile: HSE.KPO.MVC/Dockerfile
+
