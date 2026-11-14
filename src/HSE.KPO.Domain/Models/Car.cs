@@ -27,6 +27,8 @@ public class Car : IProduct, ICar
 
     public int MoveCount { get; private set; } = 0;
 
+    public int DoorsCount { get; private set; } = 4;
+    
     public virtual void Move()
     {
         Console.WriteLine("Moving");

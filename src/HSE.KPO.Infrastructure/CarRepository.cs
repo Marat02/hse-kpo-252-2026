@@ -1,26 +1,44 @@
-﻿using System.Text.Json;
-using HSE.KPO.Application.Interfaces;
-using HSE.KPO.Application.Repositories;
+﻿using HSE.KPO.Application.Repositories;
 using HSE.KPO.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace HSE.KPO.Infrastructure;
 
 public class Repository : ICarRepository
 {
-    private IFileWriter _fileWriter;
+    private readonly CarsDbContext _context;
 
-    public Repository(IFileWriter fileWriter)
+    public Repository(CarsDbContext context)
     {
-        _fileWriter = fileWriter;
+        _context = context;
     }
 
-    public Car SaveCar(Car car)
+    public async Task<IReadOnlyCollection<Car>> GetCars(CancellationToken cancellationToken)
     {
-        var jsonCar = JsonSerializer.Serialize(car);
-        _fileWriter.Write(jsonCar, "car.json");
+        var cars = await _context.Cars.ToArrayAsync(cancellationToken);
+        return cars;
+    }
+
+    public async Task<Car?> GetCar(int id, CancellationToken cancellationToken)
+    {
+        var car = await _context.Cars.Where(t => t.Id == id).FirstOrDefaultAsync(cancellationToken);
+        return car;
+    }
+
+    public async Task<Car?> GetCar(int id, int moveCount, CancellationToken cancellationToken)
+    {
+        var car = await _context.Cars.Where(t => t.Id == id && t.MoveCount == moveCount).FirstOrDefaultAsync(cancellationToken);
         return car;
     }
     
+    public Car AddCar(Car car)
+    {
+        _context.Cars.Add(car);
+        return car;
+    }
     
-    
+    public async Task SaveChangesAsync(CancellationToken cancellationToken)
+    {
+        await _context.SaveChangesAsync(cancellationToken);
+    }
 }

@@ -1,16 +1,16 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using HSE.KPO.Application.Interfaces;
-using HSE.KPO.Application.Repositories;
 using HSE.KPO.Application.Services;
 using HSE.KPO.Infrastructure;
+using HSE.KPO.Infrastructure.Extensions;
 using HSE.KPO.Sales.Application;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 
 var serviceCollection = new ServiceCollection();
 serviceCollection.AddTransient<ICarService, CarService>();
-serviceCollection.AddTransient<ICarRepository, Repository>();
+serviceCollection.AddCarsInfrastructure();
 serviceCollection.AddTransient<IFileWriter, FileWriterProxy>();
 serviceCollection.AddMassTransit(x =>
 {
@@ -22,17 +22,6 @@ var provider = serviceCollection.BuildServiceProvider();
 
 var busControl = provider.GetRequiredService<IBusControl>();
 await busControl.StartAsync();
-try
-{
-    using var scope = provider.CreateScope();
-    var carService = scope.ServiceProvider.GetRequiredService<ICarService>();
-
-    carService.CreateCar(1);
-}
-finally
-{
-    await busControl.StopAsync();
-}
 
 // Сборка машин
 // Машина - механизм для перемещения по дороге

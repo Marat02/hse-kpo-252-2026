@@ -16,15 +16,15 @@ public class CarServiceTests
     {
         // Arrange
         var carRepositoryMock = new Mock<ICarRepository>();
-        carRepositoryMock.Setup(x => x.SaveCar(It.IsAny<Car>())).Returns(new Car(1));
+        carRepositoryMock.Setup(x => x.AddCar(It.IsAny<Car>())).Returns(new Car(1));
 
         var carService = new CarService(carRepositoryMock.Object, new Mock<IBus>().Object);
         
         // Act
-        var result = carService.CreateCar(1);
+        var result = carService.CreateCar(1, CancellationToken.None);
         
         // Assert
         Assert.NotNull(result);
-        carRepositoryMock.Verify(x => x.SaveCar(It.IsAny<Car>()), Times.Once);
+        carRepositoryMock.Verify(x => x.AddCar(It.IsAny<Car>()), Times.Once);
     }
 }

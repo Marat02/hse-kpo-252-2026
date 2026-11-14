@@ -17,14 +17,23 @@ public sealed class CarService : ICarService
         _bus = bus;
     }
 
-    public Car CreateCar(int id)
+    public async Task<Car> CreateCar(int id, CancellationToken cancellationToken)
     {
-        var car = new Car(1);
+        var car = new Car(id);
         
         Console.WriteLine($"Car created with id: {car.Id}");
-        var result = _carRepository.SaveCar(car);
+        var result = _carRepository.AddCar(car);
 
-        _bus.Publish(new CarCreatedEvent(car.Id)).GetAwaiter().GetResult();
+        await _bus.Publish(new CarCreatedEvent(car.Id), cancellationToken);
+
+        await _carRepository.SaveChangesAsync(cancellationToken);
         return car;
+    }
+
+    public async Task<Car> GetCar(int id, CancellationToken cancellationToken)
+    {
+        var car = await _carRepository.GetCar(id, cancellationToken);
+        
+        return car ?? throw new Exception("Car not found");
     }
 }

@@ -10,4 +10,19 @@
     build:
       context: .
       dockerfile: HSE.KPO.MVC/Dockerfile
+      
+  postgres:
+    container_name: postgres
+    image: docker-proxy.artifactory.tcsbank.ru/postgres:15.5
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: kpo
+    networks:
+      - kpo_network
 
+networks:
+  kpo_network:
+    name: kpo_network

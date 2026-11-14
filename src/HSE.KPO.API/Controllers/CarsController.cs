@@ -1,3 +1,4 @@
+using HSE.KPO.API.Infos;
 using HSE.KPO.Application.Interfaces;
 using HSE.KPO.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,13 @@ public class CarsController : Controller
     {
         _carService = carService;
     }
+    
+    [HttpPost]
+    public async Task<Car> CreateCar([FromBody] CarInfo info, CancellationToken cancellationToken)
+    {
+        var car = await _carService.CreateCar(info.Id, cancellationToken);
+        return car;
+    }
 
     [HttpGet]
     public async Task<IReadOnlyCollection<Car>> GetCars(CancellationToken cancellationToken)
@@ -22,10 +30,10 @@ public class CarsController : Controller
         return [car];
     }
     
-    [HttpGet("{id}")]
+    [HttpGet("{id:int}")]
     public async Task<Car> GetCar([FromRoute] int id, CancellationToken cancellationToken)
     {
-        var car = new Car(id);
+        var car = await _carService.GetCar(id, cancellationToken);
         return car;
     }
 }

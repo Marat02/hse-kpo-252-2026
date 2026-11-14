@@ -1,9 +1,24 @@
+using HSE.KPO.Application.Interfaces;
+using HSE.KPO.Application.Services;
+using HSE.KPO.Infrastructure;
+using HSE.KPO.Infrastructure.Extensions;
+using HSE.KPO.Sales.Application;
+using MassTransit;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
+builder.Services.AddCarsInfrastructure();
+builder.Services.AddScoped<ICarService, CarService>();
+
+builder.Services.AddMassTransit(x =>
+{
+    x.AddConsumers(typeof(ISalesApplicationMarker).Assembly);
+    x.UsingInMemory((context, configurator) => configurator.ConfigureEndpoints(context));
+});
 
 var app = builder.Build();
 app.MapControllers();
@@ -16,5 +31,5 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+await CarsStartup.Migrate(app.Services);
 app.Run();

@@ -4,5 +4,7 @@ namespace HSE.KPO.Application.Interfaces;
 
 public interface ICarService
 {
-    Car CreateCar(int id);
+    Task<Car> CreateCar(int id, CancellationToken cancellationToken);
+
+    Task<Car> GetCar(int id, CancellationToken cancellationToken);
 }

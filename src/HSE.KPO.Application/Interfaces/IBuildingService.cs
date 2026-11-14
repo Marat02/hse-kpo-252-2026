@@ -15,7 +15,7 @@ public class IBuildingService
 
     public Car CreateCar(int id)
     {
-        return _carService.CreateCar(id);
+        return _carService.CreateCar(id, CancellationToken.None).GetAwaiter().GetResult();
     }
 
     public AssemblyLine CreateAssemblyLine()
